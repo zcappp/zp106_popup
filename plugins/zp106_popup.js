@@ -39,6 +39,7 @@ function onDestroy(ref) {
 
 const css = `.zp106 {
  position: absolute;
+ z-index: 99;
  background-color: white;
  border: 1px solid #f4f4f4;
  border-radius: 2px;
