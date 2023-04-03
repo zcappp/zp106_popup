@@ -1,6 +1,6 @@
 import React from "react"
 
-function onInit(ref) {
+function init(ref) {
     let { exc, id, container, props } = ref
     exc('load(["//z.zccdn.cn/vendor/floating-ui-core_1.0.1.js", "//z.zccdn.cn/vendor/floating-ui-dom_1.0.1.js"])', null, () => {
         const trigger = props.trigger ? (typeof props.trigger == "string" ? $(props.trigger) : props.trigger) : container.previousElementSibling
@@ -31,8 +31,8 @@ function render(ref) {
     return ref.children
 }
 
-function onDestroy(ref) {
-    // log("onDestroy")
+function destroy(ref) {
+    // log("destroy")
     document.body.removeEventListener("click", ref.clickOut)
     ref.cleanup()
 }
@@ -57,11 +57,10 @@ $plugin({
     }, {
         prop: "close",
         type: "exp",
-        label: "onClose表达式",
-        ph: "不填则为紧挨着的上一个组件"
+        label: "onClose表达式"
     }],
-    onInit,
+    init,
     render,
-    onDestroy,
+    destroy,
     css
 })
